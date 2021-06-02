@@ -20,7 +20,8 @@ import {
     IonImg,
     IonInput,
     IonAlert,
-    IonLabel
+    IonLabel,
+    IonTextarea
    } from '@ionic/react';
 import axios from 'axios';
 import { push } from 'ionicons/icons';
@@ -64,9 +65,14 @@ const CreateMemory = (props) => {
                    </IonRow>
                    <IonRow>
                        <IonCol>
-                           <IonItem color='primary'>
+                           <IonItem  color='primary'>
                                 <IonLabel position="stacked"> Description of memory </IonLabel>
-                                <IonInput placeholder="click here to enter" value={body} onIonChange={e => setBody(e.detail.value)}> </IonInput>
+                                    <div style={{height: '100px', width: '100%'}}>
+                                    {/* <IonInput autocorrect="on" placeholder="click here to enter" value={body} onIonChange={e => setBody(e.detail.value)}>  */}
+                                    <IonTextarea placeholder="click here to enter" autoCorrect={true} autoGrow={true} spellcheck={true} value={body} onIonChange={e => setBody(e.detail.value)} > 
+                                    </IonTextarea>
+                                    {/* </IonInput> */}
+                                    </div>
                            </IonItem>
                        </IonCol>
                    </IonRow>
