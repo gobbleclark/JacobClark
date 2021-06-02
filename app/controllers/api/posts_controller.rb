@@ -15,6 +15,12 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def search 
+    method = params[:method]
+  searching = Post.where("name ilike ? or text ilike ? or title ilike ?", "%#{method}%", "%#{method}%", "%#{method}%")
+    render json: searching
+end
+
   private
   def post_params
     params.require(:post).permit(:name, :text, :title)

@@ -27,8 +27,9 @@ import '@ionic/react/css/display.css';
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, IonBadge } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 // import './theme/variables.css';
-import { calendar, personCircle, map, informationCircle, search, searchCircle, people, home, settings, golfOutline } from 'ionicons/icons';
+import { calendar, personCircle, map, informationCircle, searchCircle, people, home, settings, golfOutline } from 'ionicons/icons';
 import CreateMemory from './components/CreateMemory';
+import Search from './components/Search'
 const App = () => (
   <>
   <IonApp>
@@ -43,6 +44,7 @@ const App = () => (
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/create-memory" component={CreateMemory} />
+              <Route exact path="/search" component={Search} />
               <Route component={NoMatch} />
               </Switch>
             </IonRouterOutlet>
@@ -51,7 +53,7 @@ const App = () => (
           <IonIcon icon={home} />
           <IonLabel>Home</IonLabel>
         </IonTabButton>
-        <IonTabButton tab="search" href="/search/friends">
+        <IonTabButton tab="search" href="/search">
           <IonIcon icon={searchCircle} />
           <IonLabel>Search</IonLabel>
         </IonTabButton>

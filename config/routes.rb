@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   end
   
   
+  get '/search', to: 'api/posts#search'
   get '*other', to: 'static#index'
 end
