@@ -22,6 +22,9 @@ import {
  import moment from 'moment';
  import JakeHome from '../image/JakeHome.jpg'
  import axios from 'axios'
+import { AdvancedImage } from '@cloudinary/react';
+import {fill} from "@cloudinary/base/actions/resize";
+import {Cloudinary} from "@cloudinary/base";
 const Home = () => {
   const [posts, setPosts] = useState([])
   useEffect(() => {
@@ -30,10 +33,19 @@ const Home = () => {
       setPosts(res.data)
     })
   },[])
-  const slideOpts = {
-    initialSlide: 1,
-    speed: 400
-  };
+  
+  const getImage = (public_id) => {
+    const cld = new Cloudinary({
+      cloud: {
+        cloudName: 'dw83pqykj'
+      }
+    });
+    const myImage = cld.image(public_id); 
+      myImage.resize(fill().width(400).height(400));
+      return (
+        <AdvancedImage cldImg={myImage} />
+      )
+  }
 
   const calculateDays = () => {
     var deathDate = moment("2021-05-28")
@@ -59,7 +71,12 @@ const Home = () => {
             <IonCardTitle>{p.title}</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
+            <div>
+              {getImage(p.image)}
+            </div>
+            <div>
             {p.text}
+            </div>
       </IonCardContent>
         </IonCard>
         ))}
