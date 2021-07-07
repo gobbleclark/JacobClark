@@ -63,7 +63,9 @@ const Home = () => {
         <div style={{display: 'flex', justifyContent: 'center',}}>
         <ReactPlayer url='https://youtu.be/x8TWf8CxTes'
                     playing="true"
-                    loop="true" />
+                    loop="true"
+                    controls='true'
+                     />
         </div>
         <h1 style={{textAlign: 'center', fontSize: '25px'}}> It's been {calculateDays()} days since you left, but your legacy lives on forever. </h1>
         <p style={{textAlign: 'center', fontSize: '20px', paddingTop: '25px'}}> Memories of Jake </p>
