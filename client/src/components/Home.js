@@ -25,6 +25,7 @@ import {
 import { AdvancedImage } from '@cloudinary/react';
 import {fill} from "@cloudinary/base/actions/resize";
 import {Cloudinary} from "@cloudinary/base";
+import ReactPlayer from 'react-player';
 const Home = () => {
   const [posts, setPosts] = useState([])
   useEffect(() => {
@@ -60,7 +61,9 @@ const Home = () => {
       <IonContent color='dark' >
         <h1 style={{textAlign: 'center', fontSize: '40px'}}> Jacob Clark </h1>
         <div style={{display: 'flex', justifyContent: 'center',}}>
-        <IonImg style={{width: '100%', height: '100%'}} src={JakeHome} /> 
+        <ReactPlayer url='https://youtu.be/x8TWf8CxTes'
+                    playing="true"
+                    loop="true" />
         </div>
         <h1 style={{textAlign: 'center', fontSize: '25px'}}> It's been {calculateDays()} days since you left, but your legacy lives on forever. </h1>
         <p style={{textAlign: 'center', fontSize: '20px', paddingTop: '25px'}}> Memories of Jake </p>
